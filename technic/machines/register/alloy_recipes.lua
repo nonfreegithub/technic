@@ -1,6 +1,7 @@
 
 local S = technic.getter
 local mat = technic.materials
+local has_mcl_craftguide = minetest.get_modpath("mcl_craftguide")
 
 technic.register_recipe_type("alloy", {
 	description = S("Alloying"),
@@ -56,4 +57,12 @@ end
 
 for _, data in pairs(recipes) do
 	technic.register_alloy_recipe({input = {data[1], data[2]}, output = data[3], time = data[4]})
+	if has_mcl_craftguide then
+		mcl_craftguide.register_craft({
+			type   = "alloy",
+			width  = 1,
+			output = data[3],
+			items  = {data[1], data[2]},
+		})
+	end
 end

@@ -1,5 +1,6 @@
 
 local S = technic.getter
+local has_mcl_craftguide = minetest.get_modpath("mcl_craftguide")
 
 technic.register_recipe_type("extracting", {
 	description = S("Extracting"),
@@ -90,6 +91,14 @@ if minetest.get_modpath("dye") then
 
 	for _, data in ipairs(dye_recipes) do
 		technic.register_extractor_recipe({input = {data[1]}, output = data[2]})
+		if has_mcl_craftguide then
+			mcl_craftguide.register_craft({
+				type   = "extracting",
+				width  = 1,
+				output = data[2],
+				items  = {data[1]},
+			})
+		end
 	end
 
 	-- overwrite the existing crafting recipes

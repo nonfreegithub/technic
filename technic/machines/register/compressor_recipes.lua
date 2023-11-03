@@ -2,6 +2,7 @@
 local S = technic.getter
 local mat = technic.materials
 local has_mcl = minetest.get_modpath("mcl_core")
+local has_mcl_craftguide = minetest.get_modpath("mcl_craftguide")
 
 technic.register_recipe_type("compressing", {
 	description = S("Compressing"),
@@ -57,5 +58,13 @@ end
 
 for _, data in pairs(recipes) do
 	technic.register_compressor_recipe({input = {data[1]}, output = data[2]})
+	if has_mcl_craftguide then
+		mcl_craftguide.register_craft({
+			type   = "compressing",
+			width  = 1,
+			output = data[2],
+			items  = {data[1]},
+		})
+	end
 end
 
