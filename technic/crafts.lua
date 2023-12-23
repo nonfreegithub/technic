@@ -193,14 +193,14 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = {
 		"technic:raw_latex",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
-		"default:coal_lump",
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
+		mat.coal_lump,
 	},
 })
 
